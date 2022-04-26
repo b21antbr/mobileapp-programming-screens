@@ -20,12 +20,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtra("name", "Anton");
                 startActivity(intent);
-                Bundle extras = getIntent().getExtras();
 
-                if (extras != null) {
-                    String name = extras.getString("name");
-                    // Do something with the name and number
-                }
             }
         });
 
