@@ -4,21 +4,31 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button activityButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-        intent.putExtra("name", "Anton");
-        startActivity(intent);
-        Bundle extras = getIntent().getExtras();
+        activityButton = findViewById(R.id.activityButton);
+        activityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
+                intent.putExtra("name", "Anton");
+                startActivity(intent);
+                Bundle extras = getIntent().getExtras();
 
-        if (extras != null) {
-            String name = extras.getString("name");
-            // Do something with the name and number
-        }
+                if (extras != null) {
+                    String name = extras.getString("name");
+                    // Do something with the name and number
+                }
+            }
+        });
+
     }
+
 }
